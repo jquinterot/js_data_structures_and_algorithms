@@ -1,0 +1,11 @@
+{
+  "name": "js_data_structures_and_algorithms",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node linkedList.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
