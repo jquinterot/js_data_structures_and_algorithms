@@ -69,7 +69,7 @@ class LinkedList {
     this.head = this.head.next;
     temp.next = null;
     this.length--;
-  
+
     if (this.length === 0) {
       this.head = null;
       this.tail = null;
@@ -77,13 +77,22 @@ class LinkedList {
     return temp;
   }
 
-  get(index){
-    if(index < 0 || index>= this.length) return undefined
+  get(index) {
+    if (index < 0 || index >= this.length) return undefined;
     let temp = this.head;
     for (let i = 0; i < index; i++) {
-        temp = temp.next
+      temp = temp.next;
     }
     return temp;
+  }
+
+  set(index, value) {
+    if (index < 0 || index >= this.length) return undefined;
+    let temp = this.get(index);
+    if (temp) {
+      temp.value = value;
+      return true;
+    } else return false;
   }
 }
 
@@ -97,24 +106,32 @@ class Node {
 
 let myLinkedList = new LinkedList(7);
 
+//Push a new value  in the last position of the list
 myLinkedList.push(5);
 myLinkedList.push(5);
 console.log("after push");
 console.log(myLinkedList);
 
+//Remove a value from the last position of the list
 console.log(myLinkedList.pop());
 console.log("after pop");
 console.log(myLinkedList);
 
+//Add element at the begining
 console.log(myLinkedList.unshift(4));
 console.log("after unshift");
 console.log(myLinkedList);
 
+//Remove element at the begining
 console.log(myLinkedList.shift());
 console.log("after shift");
 console.log(myLinkedList);
 
+//Get a value from a given position
 console.log("get second element");
 console.log(myLinkedList.get(1));
 
-
+//Set a value in a given position
+console.log("set second to  0");
+console.log(myLinkedList.set(1,1));
+console.log(myLinkedList);
