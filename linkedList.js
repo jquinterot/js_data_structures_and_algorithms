@@ -94,6 +94,26 @@ class LinkedList {
       return true;
     } else return false;
   }
+
+  insert(index, value) {
+    if (index < 0 || index >= this.length) return undefined;
+    if (index == 0) {
+      return this.unshift(value);
+    }
+
+    if (index == this.length) {
+      return this.push(value);
+    }
+
+    const newNode = new Node(value);
+    const temp = this.get(index - 1);
+    //This inserted  value is pointing to the next node (reason of the -1)
+    newNode.next = temp.next;
+    temp.next = newNode;
+    this.length++;
+    return true
+  }
+
 }
 
 class Node {
@@ -133,5 +153,12 @@ console.log(myLinkedList.get(1));
 
 //Set a value in a given position
 console.log("set second to  0");
-console.log(myLinkedList.set(1,1));
+console.log(myLinkedList.set(1, 1));
+console.log(myLinkedList);
+
+//Insert a new value in a given position (index,value)
+myLinkedList.insert(0,6);
+myLinkedList.insert(2,2);
+myLinkedList.insert(2,2);
+console.log("after Insertion");
 console.log(myLinkedList);
